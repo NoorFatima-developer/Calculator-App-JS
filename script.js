@@ -5,33 +5,27 @@ let buttonsArray = Array.from(buttons);
 let string = "";
 
 buttonsArray.forEach(function (btn) {
-
   console.log(btn); //return variable
 
-
   btn.addEventListener("click", function (event) {
-
-    if(event.target.innerHTML === 'DEL') {
-        string = string.substring(0, string.length-1);
-        display.value = string;
-    }else if(event.target.innerHTML === 'AC'){
-        string = "";
-        display.value = string;
-    }else if(event.target.innerHTML === '='){
-        // eval convery string into number..
-        string = eval(string);
-        display.value = string;
-        string = '';
+    if (event.target.innerHTML === "DEL") {
+      string = string.substring(0, string.length - 1);
+      display.value = string;
+    } else if (event.target.innerHTML === "AC") {
+      string = "";
+      display.value = string;
+    } else if (event.target.innerHTML === "=") {
+      // eval convery string into number..
+      string = eval(string);
+      display.value = string;
+      string = "";
+    } else {
+      // console.log(event);
+      // console.log(event.target);
+      // console.log(event.target.innerHTML);
+      string += event.target.innerHTML;
+      display.value = string;
     }
-
-    else {
-    // console.log(event);
-    // console.log(event.target);
-    // console.log(event.target.innerHTML);
-    string += event.target.innerHTML;
-    display.value = string;
-    }
-    
   });
 });
 
